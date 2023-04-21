@@ -7,9 +7,9 @@ import (
 )
 
 // 将node.Node 转化为markdown文本格式
-func NodeToMarkMap(root node.Node, rootDir string) {
+func NodeToMarkMap(root node.Node, dir string) {
 	// 打开一个文件写入数据
-	file, err := os.OpenFile(rootDir+"/testmap.md", os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile(dir+"/testmap.md", os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		panic(err)
 	}
