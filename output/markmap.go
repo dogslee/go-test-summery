@@ -2,8 +2,9 @@ package output
 
 import (
 	"fmt"
-	"go-test-summery/node"
 	"os"
+
+	"github.com/dogslee/go-test-summery/node"
 )
 
 // 将node.Node 转化为markdown文本格式

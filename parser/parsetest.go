@@ -1,10 +1,11 @@
 package parser
 
 import (
-	"go-test-summery/node"
 	"go/ast"
 	"go/token"
 	"strings"
+
+	"github.com/dogslee/go-test-summery/node"
 )
 
 // GetFuncNameAndComment 获取单元测试的方法名和和注释

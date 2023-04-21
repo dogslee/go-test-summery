@@ -1,9 +1,9 @@
 package gotestsummery
 
 import (
-	"go-test-summery/node"
-	"go-test-summery/output"
-	"go-test-summery/parser"
+	"github.com/dogslee/go-test-summery/node"
+	"github.com/dogslee/go-test-summery/output"
+	"github.com/dogslee/go-test-summery/parser"
 )
 
 // CreateMarkMapFromTestDir create mark map from test dir

@@ -1,12 +1,13 @@
 package parser
 
 import (
-	"go-test-summery/node"
-	"go-test-summery/parser/visitor"
 	"io/ioutil"
 	"log"
 	"path/filepath"
 	"strings"
+
+	"github.com/dogslee/go-test-summery/node"
+	"github.com/dogslee/go-test-summery/parser/visitor"
 )
 
 // WalfDir 深度遍输出全部目录
