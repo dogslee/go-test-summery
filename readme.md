@@ -4,17 +4,6 @@
 
 ## 用法
 
-```go
-package main
-
-import (
-	testSummery "github.com/dogslee/go-test-summery"
-)
-
-func main() {
-	// testdir is the directory of test files
-	// output is the directory of output files
-	testSummery.CreateMarkMapFromTestDir("./testdir", "./output")
-}
-
+```bash
+./go-test-summery <testdir> <outputdir> <testmapname>
 ```
