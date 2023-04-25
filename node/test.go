@@ -14,13 +14,7 @@ func (t *TestNode) GetChildren() []Node {
 }
 
 func (t *TestNode) GetName() string {
-	ret := ""
-	if len(t.Comment) > 0 {
-		ret = fmt.Sprintf("%s:%s", t.Comment, t.FuncName)
-	} else {
-		ret = t.FuncName
-	}
-	return ret
+	return genTestInfo("", t.FuncName, t.Comment)
 }
 
 func (t *TestNode) AddChild(node Node) {
@@ -37,4 +31,19 @@ func NewTestNode(funcName, comment string) Node {
 		FuncName: funcName,
 		Comment:  comment,
 	}
+}
+
+// genTestInfo 生成测试信息
+func genTestInfo(testName, funcName, comment string) string {
+	ret := ""
+	if len(comment) > 0 {
+		ret = fmt.Sprintf("%s:%s", funcName, comment)
+	} else {
+		ret = funcName
+	}
+
+	if testName != "" {
+		ret = fmt.Sprintf("%s/%s", testName, ret)
+	}
+	return ret
 }

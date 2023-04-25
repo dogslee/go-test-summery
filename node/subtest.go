@@ -1,13 +1,11 @@
 package node
 
-import "fmt"
-
 // SubTestNode is a sub test node
 type SubTestNode struct {
 	// 父节点的名称
 	ParentName string
-	TestName   string
-	FuncName   string
+	TestName   string // 测试名称
+	FuncName   string // 函数名称 默认测试名称和函数名称是一样的
 	Comment    string
 }
 
@@ -16,13 +14,7 @@ func (s *SubTestNode) GetChildren() []Node {
 }
 
 func (s *SubTestNode) GetName() string {
-	ret := ""
-	if len(s.Comment) > 0 {
-		ret = fmt.Sprintf("%s:%s/%s", s.Comment, s.ParentName, s.TestName)
-	} else {
-		ret = fmt.Sprintf("%s/%s", s.ParentName, s.TestName)
-	}
-	return ret
+	return genTestInfo(s.ParentName, s.FuncName, s.Comment)
 }
 
 func (s *SubTestNode) AddChild(node Node) {
