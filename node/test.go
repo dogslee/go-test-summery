@@ -6,7 +6,13 @@ import "fmt"
 type TestNode struct {
 	FuncName string
 	Comment  string
+	Parent   Node
 	Children []Node
+	TestCnt  int
+}
+
+func (t *TestNode) GetParent() Node {
+	return t.Parent
 }
 
 func (t *TestNode) GetChildren() []Node {
@@ -26,8 +32,9 @@ func (t *TestNode) IsLeaf() bool {
 }
 
 // NewTestNode is a constructor of TestNode
-func NewTestNode(funcName, comment string) Node {
+func NewTestNode(p Node, funcName, comment string) *TestNode {
 	return &TestNode{
+		Parent:   p,
 		FuncName: funcName,
 		Comment:  comment,
 	}

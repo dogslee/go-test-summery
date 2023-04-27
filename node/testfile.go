@@ -1,8 +1,16 @@
 package node
 
 type TestFileNode struct {
-	FileName string
-	Children []Node
+	FileName    string
+	Parent      Node
+	Children    []Node
+	TestCnt     int
+	TestPassCnt int
+	TestFailCnt int
+}
+
+func (t *TestFileNode) GetParent() Node {
+	return t.Parent
 }
 
 func (t *TestFileNode) GetChildren() []Node {
@@ -22,8 +30,9 @@ func (t *TestFileNode) IsLeaf() bool {
 }
 
 // NewTestFileNode is a constructor of TestFileNode
-func NewTestFileNode(fileName string) *TestFileNode {
+func NewTestFileNode(p Node, fileName string) *TestFileNode {
 	return &TestFileNode{
+		Parent:   p,
 		FileName: fileName,
 	}
 }

@@ -2,11 +2,16 @@ package node
 
 // SubTestNode is a sub test node
 type SubTestNode struct {
+	Parent Node
 	// 父节点的名称
 	ParentName string
 	TestName   string // 测试名称
 	FuncName   string // 函数名称 默认测试名称和函数名称是一样的
 	Comment    string
+}
+
+func (s *SubTestNode) GetParent() Node {
+	return s.Parent
 }
 
 func (s *SubTestNode) GetChildren() []Node {
@@ -26,8 +31,9 @@ func (s *SubTestNode) IsLeaf() bool {
 }
 
 // NewSubTestNode is a constructor of SubTestNode
-func NewSubTestNode(parentName, testName, funcName, comment string) *SubTestNode {
+func NewSubTestNode(p Node, parentName, testName, funcName, comment string) *SubTestNode {
 	return &SubTestNode{
+		Parent:     p,
 		ParentName: parentName,
 		TestName:   testName,
 		FuncName:   funcName,

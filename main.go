@@ -27,7 +27,8 @@ func main() {
 		DefaultTestMapName = os.Args[3]
 	}
 
-	root := node.NewDIRNode(DefaultTestMapName)
+	root := node.NewDIRNode(nil, DefaultTestMapName)
 	parser.WalfDirGroupFile(testDir, root)
+	root.TestFailCount, root.TestCount = node.SummeryNodeInfo(root)
 	output.NodeToMarkMap(root, outPutDir)
 }

@@ -1,8 +1,17 @@
 package node
 
 type DirNode struct {
-	DirName  string
-	Children []Node
+	DirName       string
+	Parent        Node
+	Children      []Node
+	TestFileCount int
+	TestCount     int
+	TestPassCount int
+	TestFailCount int
+}
+
+func (d *DirNode) GetParent() Node {
+	return d.Parent
 }
 
 func (d *DirNode) GetChildren() []Node {
@@ -26,8 +35,9 @@ func (d *DirNode) IsLeaf() bool {
 }
 
 // NewDIRNode is a constructor of DIRNode
-func NewDIRNode(dirName string) *DirNode {
+func NewDIRNode(p Node, dirName string) *DirNode {
 	return &DirNode{
+		Parent:  p,
 		DirName: dirName,
 	}
 }
